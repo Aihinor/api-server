@@ -29,61 +29,8 @@
     </div>
   </body>
   <script type="text/javascript">
-
-    // let a_text = document.getElementById('text_addr')
-    // console.log(a_text.textContent)
-
-    // getParentAddressName();
-    var map = new BMap.Map("container");
-    map.centerAndZoom("广州", 12);
-    map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
-    map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用
-
-    map.addControl(new BMap.NavigationControl()); //添加默认缩放平移控件
-    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
-    map.addControl(new BMap.OverviewMapControl({
-      isOpen: true,
-      anchor: BMAP_ANCHOR_BOTTOM_RIGHT
-    })); //右下角，打开
-
-
-    // map.addEventListener("click", function (e) {//点击地图获取经纬度
-    //   console.log(e.point)
-    //   map.clearOverlays(); //清空原来的标注
-    //   var marker = new BMap.Marker(new BMap.Point(e.point.lng, e.point.lat)); // 创建标注，为要查询的地方对应的经纬度
-    //   map.addOverlay(marker);
-    //   getAddress(e.point)
-    // });
-
-    // var gc = new BMap.Geocoder();
-    // function getAddress(point) {
-    //   gc.getLocation(point, function (searchResult) {
-    //     console.log(searchResult.address)
-    //     document.getElementById("text_").value = searchResult.address;
-    //   })
-    // }
-
-    var localSearch = new BMap.LocalSearch(map);
-    localSearch.enableAutoViewport(); //允许自动调节窗体大小
-
-    function searchByStationName() {
-      map.clearOverlays(); //清空原来的标注
-      var keyword = document.getElementById("text_addr").textContent;
-      localSearch.setSearchCompleteCallback(function (searchResult) {
-        var poi = searchResult.getPoi(0);
-
-        map.centerAndZoom(poi.point, 13);
-        var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat)); // 创建标注，为要查询的地方对应的经纬度
-        map.addOverlay(marker);
-
-        marker.addEventListener("click", function () {
-          this.openInfoWindow(infoWindow);
-        });
-
-      });
-      localSearch.search(keyword);
-    }
-
+    let a = 100;
+    console.log(a)
 
   </script>
 
